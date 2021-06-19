@@ -1,5 +1,5 @@
 const { mkdir, writeFile } = require('fs').promises;
-const { createReadStream, createWriteStream, readFile, unlink } = require('fs')
+const { createReadStream, createWriteStream, unlink } = require('fs')
 const { createGzip } = require('zlib');
 
 const folderArray = ["controllers", "routers", "views"]
