@@ -39,7 +39,7 @@ const archiveFileApplication = (file) => {
         .pipe(createGzip())
         .pipe(createCompressedFile);
 
-    writeableStream.on('finish', () => {    
+    writeableStream.on('end', () => {    
         unlink(filePath)
         unlink(copyPath)
     }) 
