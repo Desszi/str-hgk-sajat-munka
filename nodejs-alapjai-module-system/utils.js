@@ -6,6 +6,4 @@ const increaseAndFormatDate = arr => {
    return arr.map(date => new Intl.DateTimeFormat('hu').format(increaseDate(date)))
 }
 
-module.exports = {
-    increaseAndFormatDate
-}
+module.exports = increaseAndFormatDate
