@@ -4,7 +4,7 @@ const {createReadStream, createWriteStream } = require('fs')
 const loggerExample = new Logger()
 const path = './arbitrary'
 
-const readableStream = createReadStream(`${path}Copy.txt`, { 
+const readableStream = createReadStream(`${path}.txt`, { 
     encoding: 'utf-8', 
     highWaterMark: 822 
 });
