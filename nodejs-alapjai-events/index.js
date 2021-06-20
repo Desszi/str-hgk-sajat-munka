@@ -1,5 +1,5 @@
 const Logger = require('./logger')
-const {createReadStream, createWriteStream } = require('fs')
+const {createReadStream, createWriteStream, writeFile } = require('fs')
 
 const loggerExample = new Logger()
 const path = './arbitrary'
@@ -19,10 +19,12 @@ const capitalizeLetter = string => {
 
 readableStream.on('capitalizer', (word) => {
     try {
-        const transformLetters =  word.split(' ')
-            .map(letter => capitalizeLetter(letter))
-            .join(' ')    
-        console.log(transformLetters);
+        writeFile(
+            `${path}Copy.txt`,
+             word.split(' ')
+                .map(letter => capitalizeLetter(letter))
+                .join(' ')
+        )
         loggerExample.success('File transform successful.')
     } catch (error) {
         loggerExample.error(error.message)
