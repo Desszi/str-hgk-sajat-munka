@@ -1,13 +1,13 @@
 **1. feladat:**
 *Ellenőrizd a telepített NodeJS verziószámát!*
 
-A telepített NodeJS verziószámát az ~~node -v~~ paranccsal kérhetjük le.
+A telepített NodeJS verziószámát az ```node -v``` paranccsal kérhetjük le.
 Nálam használt NodeJS verziószáma: v14.16.0
 
 **2. feladat:**
 *Ellenőrizd a telepített npm verziószámát!*
 
-A NodeJS csomagkezelőjének verziószámát az ~~npm -v~~ paranccsal deríthetjük ki.
+A NodeJS csomagkezelőjének verziószámát az ```npm -v``` paranccsal deríthetjük ki.
 A nálam telepített npm verziószáma: 6.14.11
 
 **3. feladat:**
