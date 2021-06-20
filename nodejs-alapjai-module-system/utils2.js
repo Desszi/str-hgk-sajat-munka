@@ -8,8 +8,7 @@ const generateUserList = userArray => {
 }
 
 const getUserNames = userArray => {
-    return userArray.map( user => `${user.firstName} ${user.lastName}`).join(', ')
-    //generateUserList(userArray).fullName
+    return generateUserList(userArray).map( user => user.fullName).join(', ')
 }
 
 module.exports = Object.freeze({
