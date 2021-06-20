@@ -8,12 +8,6 @@ const fileArray = [
     './app.js'
 ]
 
-const createFolders = folderArray => {
-    return folderArray.map(folder => mkdir(folder))
-}
-createFolders(folderArray);
+folderArray.forEach(folder => mkdir(folder))
+fileArray.forEach(file => writeFile(file, ``))
 
-const createFiles = fileArray => {
-    return fileArray.map(file => writeFile(file, ``))
-}
-createFiles(fileArray);
