@@ -3,13 +3,32 @@
 ## Ha egy objektum (dokumentum) egy másik dokumentum egyik mezőjében van, akkor beszélhetünk „embed”, beágyazott dokumentumról.
 
 Használjuk a videoStore adatbázist!
+```
+use videoStore
+```
 
 Hozzunk létre benne egy új „cinemas” listát, amely a következő kikötésekkel rendelkezik:
 
-_id: kötelező megadni és csak egész számokból (integer) állhat
-'name' mező: string lehet, kötelező megadni. Csak számokból, betűkből (angol) és szóközből állhat
-'movies' mező: 'array' lehet és kötelező megadni
-'address' mező: objektum lehet és kötelező megadni (az objektumban majd elég egy „city” mezővel játszani)
+- _id: kötelező megadni és csak egész számokból (integer) állhat
+- 'name' mező: string lehet, kötelező megadni. Csak számokból, betűkből (angol) és szóközből állhat
+- 'movies' mező: 'array' lehet és kötelező megadni
+- 'address' mező: objektum lehet és kötelező megadni (az objektumban majd elég egy „city” mezővel játszani)
+```
+ db.createCollection("cinema", {
+... ... validator: {
+... ...         $jsonSchema: {
+... ...               required: ["id", "name", "movies", "address"],
+... ...               properties: {
+... ...                          _id: {bsonType: "int"},
+... ...                         name: {bsonType: "string", pattern: "[a-zA-Z0-9].*"},
+... ...                        movies: {bsonType: "array"},
+... ...                       address: {bsonType: "object", properties: {city: {bsonType: "string"}}}
+...                 }
+...             }
+...     }
+... })
+```
+
 1. Ha még nem tettük meg, a cinema listánk rendelkezzen 3 cinema dokumentummal, és minden cinema dokumentum „játsszon” legalább 3 különböző filmet => adjunk hozzá legalább 3 cinema dokumentum egyes movies listájához 3 db "_id" értéket a movies listából!
 2. Kérdezzük le, hogy az első helyen lévő mozink milyen filmeket játszik, jelenjen meg minden film tulajdonsága!
 3. Ismételjük meg a fenti lekérdezést úgy, hogy csak a játszott film listája, adatai jelenjenek meg (tipp: „project” operator)!
