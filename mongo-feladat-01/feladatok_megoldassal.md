@@ -56,4 +56,4 @@ db.movies.updateOne( {title: "Titanic"}, {$push:{ratings: [4,5]}})
 db.movies.updateMany( {}, [{$set: {category: {$toUpper: "$category"} }}] )
 ```
 
-Végeredmény: 
+##Végeredmény: 
