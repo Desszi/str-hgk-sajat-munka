@@ -30,9 +30,45 @@ Hozzunk létre benne egy új „cinemas” listát, amely a következő kiköté
 ```
 
 1. Ha még nem tettük meg, a cinema listánk rendelkezzen 3 cinema dokumentummal, és minden cinema dokumentum „játsszon” legalább 3 különböző filmet => adjunk hozzá legalább 3 cinema dokumentum egyes movies listájához 3 db "_id" értéket a movies listából!
+```
+db.cinemas.save([
+... {_id: 1, name: "Arena Plaza", movies[], address: {city: "Budapest"}},
+... {_id: 2, name: "Westend Cinema City", movies[], address: {city: "Budapest"}},
+... {_id: 3, name: "Sugar mozi", movies[], address: {city: "Budapest"}}
+... ])
+```
+
 2. Kérdezzük le, hogy az első helyen lévő mozink milyen filmeket játszik, jelenjen meg minden film tulajdonsága!
+
+```
+db.cinemas.aggregate([
+... {
+...   $lookup: {
+...   from: "movies",
+...      localField: "movies",
+...      foreignField: "_id",
+...      as: "movies"
+...    }
+...  }, { $limit: 1 }
+... ])
+```
 3. Ismételjük meg a fenti lekérdezést úgy, hogy csak a játszott film listája, adatai jelenjenek meg (tipp: „project” operator)!
+
+```
+db.cinemas.aggregate([
+... {
+...   $lookup: {
+...   from: "movies",
+...      localField: "movies",
+...      foreignField: "_id",
+...      as: "movies"
+...    }
+...  }, { $limit: 1 }, 
+...  {$project: { _id: 0, movies: 1 }}
+... ])
+```
 4. Ha még nem tettük meg, készítsünk el a videoStore-ban egy directors listát (a 2. feladat leírása alapján), és minden rendezőhöz rendeljünk 2-3 db filmet a „movies” mezőjükhöz.
+
 5. Kérdezzük le az egyik rendező által rendezett filmek adatait!
 6. Kérdezzük le egy másik rendező filmjeit úgy, hogy csak a rendező neve és a filmek „title”-jei, vagyis címei jelennek meg (tipp: $project operátor)!
 A képen szöveg látható  Automatikusan generált leírás
