@@ -43,6 +43,8 @@ db.directors.find().forEach( director => {
 ```
 ---
 4. Ha frissítetted a rendezőket, ellenőrzés gyanánt kérdezd le a dokumentumokat a „directors” listából (használd a pretty() metódust a szebb megjelenítéshez)! Ehhez hasonló eredményt kell látnod.
+
+
 ![image](https://user-images.githubusercontent.com/30593027/126034597-cf5fcf44-4554-44a8-b31e-a50b81cdf6d2.png)
 ---
 
