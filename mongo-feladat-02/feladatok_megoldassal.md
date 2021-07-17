@@ -19,8 +19,15 @@ db.directors.insertOne({"_id": 3, "name": "James Cameron", "birthYear":1954, "mo
 ```
 ---
 3. Frissítsd a rendezők dokumentumait, helyezd el a „movies” listájukba a megfelelő filmek id-jait (ha ObjectId-t használsz, akkor figyelj arra, hogy ObjectId-ként mentsd el őket). Tipp: kérdezd le a rendezőket, és alájuk listázd a filmeket úgy, hogy csak az id-jük és a rendező nevét adja vissza a lekérdezés.
-```
 
+```
+db.directors.find()
+```
+```
+db.movies.find({}, {director:1})
+```
+![image](https://user-images.githubusercontent.com/30593027/126034139-0e3321ee-44a8-401b-a5a3-2b2b0aa7b48d.png)
+```
 
 ```
 ---
