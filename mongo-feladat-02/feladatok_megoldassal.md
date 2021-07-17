@@ -1,6 +1,6 @@
-## A videoStore feladat folytatása (update, find, projection)
+# A videoStore feladat folytatása (update, find, projection)
 
-# Normalization elve: Csak a közvetlen összetartozó elemeket tároljuk egy táblázatban (listában). Minél összetettebb egy adat (több tulajdonsággal rendelkezhet, pl.: rendezőnek lehet neve, díjai, filmjei, születési adatai), annál inkább külön listába kell kiszervezni a tárolását.
+## Normalization elve: Csak a közvetlen összetartozó elemeket tároljuk egy táblázatban (listában). Minél összetettebb egy adat (több tulajdonsággal rendelkezhet, pl.: rendezőnek lehet neve, díjai, filmjei, születési adatai), annál inkább külön listába kell kiszervezni a tárolását.
 
 1. Készíts el egy „directors” listát, amelyben filmrendezőket fogunk tárolni!
 ```
