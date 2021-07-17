@@ -27,8 +27,19 @@ db.directors.find()
 db.movies.find({}, {director:1})
 ```
 ![image](https://user-images.githubusercontent.com/30593027/126034139-0e3321ee-44a8-401b-a5a3-2b2b0aa7b48d.png)
-```
 
+```
+db.directors.find().forEach( director => {
+    db.movies.find(
+        {_id: 1},
+        { director: director.name}
+    ).forEach(id => {
+        db.directors.updateOne(
+            {_id: director._id},
+            {$push: {movies: id._id}}
+        )
+    })
+})
 ```
 ---
 4. Ha frissítetted a rendezőket, ellenőrzés gyanánt kérdezd le a dokumentumokat a „directors” listából (használd a pretty() metódust a szebb megjelenítéshez)! Ehhez hasonló eredményt kell látnod:
