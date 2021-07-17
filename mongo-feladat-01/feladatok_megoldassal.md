@@ -57,3 +57,4 @@ db.movies.updateMany( {}, [{$set: {category: {$toUpper: "$category"} }}] )
 ```
 
 ##Végeredmény: 
+![image](https://user-images.githubusercontent.com/30593027/126033106-0a052888-d210-4eb9-b59d-04b36493d490.png)
