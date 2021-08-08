@@ -1,6 +1,8 @@
 const express = require('express');
 const swaggerUIexp = require('swagger-ui-express');
 const YAML = require ('yamljs');
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 const app = express();
 const port =3000;
@@ -8,7 +10,7 @@ const port =3000;
 const swaggerDocu = YAML.load('./docs/swagger.yaml');
 
 app.use('/person', require('./src/controllers/person/routes'))
-
+app.use(express.json());
 
 app.use((err, req, res, next) => {
 	res.status(err.statusCode);
